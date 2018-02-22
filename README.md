@@ -39,8 +39,8 @@ file in this repository.  Licenses may vary by repository.  Your download and us
   *Note: I've tested this solution with Apache JMeter running locally.*
 
 ## Installation
-1. `git clone <INSERT_github.com repo here>`
-2. `cd <dir>`
+1. `git clone https://github.com/barsutka/apm-metrics-simulator`
+2. `cd apm-metrics-simulator`
 
 # Usage Instructions
   * Make sure that your EPAgent is running and you can see it connected and reporting default metrics to the CA APM EM.
