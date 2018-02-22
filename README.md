@@ -65,7 +65,7 @@ if you think that you found a bug or something is not working - please create an
 # Contributing
 Your contribution to this project is appreciated - pull requests are welcomed.
 
-##Trouble Shooting:
+# Trouble Shooting:
 1. JMeter reporting errors when trying to access EPAgent /apm/metricFeed Rest End Point.
 A good response should look like this:
 ```
