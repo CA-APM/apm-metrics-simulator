@@ -5,13 +5,13 @@ This project is using CA APM EPAgent built-in /apm/metricFeed REST end-point to 
 To read up further on this functionality, please consult with official CA APM documentation - https://docops.ca.com/ca-apm/10-5/en/implementing-agents/ep-agent/configure-epagent-to-enterprise-manager-connections/configure-the-epagent-restful-interface
 
 
-Recently, I was facing with a situation, where I didn't really have access to the LIVE APM system and I needed to implement (and test) JS-Scripts and Management Module (e.g.: Dashboards, Alerts, etc.) ASAP (as always). so, I've decided to spend few hours to create something that I could use to simulate metrics needed for the job. I tried to make it as generic as possible, so it can be used/re-used by anybody who doesn't have access to LIVE metrics or if you would prefer to do t he work remotely.
+Recently, I was facing with a situation, where I didn't have access to the LIVE APM system and I needed to implement (and test) JS-Scripts and Management Module (e.g.: Dashboards, Alerts, etc.) ASAP (as always). So, I've decided to spend few hours to create something that I could use to simulate metrics needed for the job. I tried to make it as generic as possible, so it can be used/re-used by anybody who doesn't have access to LIVE metrics or if you would prefer to do t he work remotely.
 
-A very special shout out goes to the people behind this project [Dockerized Introscope](https://github.com/CA-APM/docker-introscope) - I followed the simple instrunctions there to create and run my own docker images with CA APM Introscope on my laptop - which made it possible to do the whole development and testing without the need for access for LIVE metrics.
+A very special shout out goes to the people behind this project [Dockerized Introscope](https://github.com/CA-APM/docker-introscope) - I followed the simple instructions there to create and run my own CA APM Introscope docker images on my laptop - which made it possible to do the whole development and testing without the need for access for LIVE metrics.
 **THANK YOU!**
 
 ## Short Description
-The APM Metrics Simulator can be deployed and used on any Linux or Mac based systems.
+The APM Metrics Simulator can be deployed and used on any Linux or Mac based system to simulate metrics creation in CA APM Introscope.
 
 ## APM Version
 So far - this solution was tested with APM 10.5.1 and 10.5.2 installations running on Ubuntu 16.04 LTS.
@@ -45,12 +45,18 @@ file in this repository.  Licenses may vary by repository.  Your download and us
 # Usage Instructions
   * Make sure that your EPAgent is running and you can see it connected and reporting default metrics to the CA APM EM.
     You should see something like this:
+    
     ![EPAgent is connected to CA APM EM](images/EPAgent-connected.png)
 
   * Using Apache JMeter:
     `jmeter -n -t jmeter-scripts/CreateMetricsInAPM.jmx -l \
      output/MyResultFile -e -o output \
      -Japm-epagent-url=127.0.0.1 -Japm-epagent-http-server-port=9090`
+
+     After you started the JMeter test successfully, you should be able to see metrics in your CA APM Workstation or WebView:
+
+     ![EPAgent has the generated metrics](images/EPAgent-metrics-generated.png)
+
 
 ## Support
 This solution is provided "AS-IS" and you may use it at your own risk.
