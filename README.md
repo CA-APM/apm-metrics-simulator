@@ -45,7 +45,7 @@ file in this repository.  Licenses may vary by repository.  Your download and us
 # Usage Instructions
   * Make sure that your EPAgent is running and you can see it connected and reporting default metrics to the CA APM EM.
     You should see something like this:
-    
+
     ![EPAgent is connected to CA APM EM](images/EPAgent-connected.png)
 
   * Using Apache JMeter:
@@ -112,11 +112,13 @@ org.apache.http.NoHttpResponseException: 127.0.0.1:9090 failed to respond
 ```
 It seems that the EPAgent's built-in jetty web server doesn't have enough juice to handle requests that JMeter is firing at it.
 I found that beefing up these parameters (normally located at the end of the file) in **IntroscopeEPAgent.properties** file.
+```
 introscope.epagent.config.HttpServer.minThreadCount=100
 introscope.epagent.config.HttpServer.maxThreadCount=200
 introscope.epagent.config.HttpServer.maxQueuedCount=1000
 introscope.epagent.config.HttpServer.maxIdleTimeMS=18000000
 introscope.epagent.config.HttpServer.maxIdleTime=10000
 introscope.epagent.config.HttpServer.acceptQueueSize=1000
+```
 
-In addition, it will not heart to give a bit more RAM to EPAgent -  Edit your EPAService.conf file and add `wrapper.java.additional.2=-Xmx1024m` in the *Additional Java parameters* section.
+In addition, it will not heart to give a bit more RAM to EPAgent - Edit your EPAService.conf file and add `wrapper.java.additional.2=-Xmx1024m` in the *Additional Java parameters* section.
