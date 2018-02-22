@@ -49,9 +49,12 @@ file in this repository.  Licenses may vary by repository.  Your download and us
     ![EPAgent is connected to CA APM EM](images/EPAgent-connected.png)
 
   * Using Apache JMeter:
-    `jmeter -n -t jmeter-scripts/CreateMetricsInAPM.jmx -l \
-     output/MyResultFile -e -o output \
-     -Japm-epagent-url=127.0.0.1 -Japm-epagent-http-server-port=9090`
+  
+    ```
+    jmeter -n -t jmeter-scripts/CreateMetricsInAPM.jmx -l \
+    output/MyResultFile -e -o output \
+    -Japm-epagent-url=127.0.0.1 -Japm-epagent-http-server-port=9090
+     ```
 
      After you started the JMeter test successfully, you should be able to see metrics in your CA APM Workstation or WebView:
 
@@ -65,7 +68,7 @@ if you think that you found a bug or something is not working - please create an
 # Contributing
 Your contribution to this project is appreciated - pull requests are welcomed.
 
-# Trouble Shooting:
+# Troubleshooting:
 1. JMeter reporting errors when trying to access EPAgent /apm/metricFeed Rest End Point.
 A good response should look like this:
 ```
